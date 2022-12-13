@@ -1,7 +1,7 @@
 
 from flask import Flask, request, render_template
-import myimg
-import myuser
+from . import myimg as myimg
+from . import MyUser
 
 app = Flask(__name__)
 
@@ -19,12 +19,12 @@ def mymain():
 
 @app.route('/novocadastro')
 def novocadastro():
-    return render_template('teste-form.html')
+    return render_template('novocadastro.html')
 
 
 @app.route('/cadastro2', methods=['POST'])
 def cadastro2():
-    user = myuser.HtmlUser.fromhtml(request)
+    user = MyUser.fromhtml(request)
 
     pag = f'''
     <h1>Cadastrando novo usuario...</h1>
@@ -34,7 +34,7 @@ def cadastro2():
 
 
 @app.route('/cadastro', methods=['POST'])
-def meu_castro():
+def meu_cadastro():
     nome = request.form['usuario']
     login = request.form['login']
     email = request.form['email']
@@ -56,8 +56,3 @@ def meu_castro():
     <h2>obrigado pela visita!</h2>
     '''
     return pag
-
-
-if __name__ == '__main__':
-   app.run(debug=True, use_debugger=False, use_reloader=False)
-   # app.run()

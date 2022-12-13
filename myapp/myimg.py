@@ -2,23 +2,10 @@
 # -*- coding: utf-8 -*-
 
 import hashlib
-import pathlib
 import magic
 import os
-
-
-# as informacoes abaixo poderiam estar em uma configuracao...
-BASE_APP_DIR = pathlib.Path.cwd()   # diretorio atual..
-CAMINHO_PADRAO = 'static/imgs'      # onde salvar
-
-mypath = BASE_APP_DIR.joinpath(CAMINHO_PADRAO)
-if not mypath.exists():
-    mypath.mkdir()
-
-CAMINHO_PADRAO = str(mypath.resolve())
-IMAGENS_ACEITAS = {'png', 'jpg', 'jpeg', 'gif'}
-print('caminho padrao de imagens:', CAMINHO_PADRAO)
-print('imagens aceitas:', IMAGENS_ACEITAS)
+from . import getconfig
+from PIL import Image
 
 
 # Python Exception Hierarchy:
@@ -37,6 +24,10 @@ def _get_buffer_extension(buffer):
 
 # from: https://flask.palletsprojects.com/en/1.1.x/patterns/fileuploads/
 def get_extension(buffer, fname):
+    cfg = getconfig()
+    imgcfg = cfg['image-config']
+    extensoes = imgcfg['extensoes-aceitas']
+
     if not '.' in fname:
         extensao = _get_buffer_extension(buffer)
     else:
@@ -44,7 +35,7 @@ def get_extension(buffer, fname):
         extensao = nome_ext[1]
 
     extensao = extensao.strip().lower()
-    if not extensao in IMAGENS_ACEITAS:
+    if not extensao in extensoes:
         error_message = 'TIPO de arquivo desconhecido ou nao aceito!'
         raise MyImageError(error_message)
 
@@ -63,17 +54,42 @@ def get_imgname(img):
 
 
 def mysave(img):
-    img = redimensionar(img)
-    fname = get_imgname(img)
-    print(fname)
+    cfg = getconfig()
+    imgcfg = cfg['image-config']
+    imgpath = imgcfg['img-path']
 
-    fullpath = os.path.join(CAMINHO_PADRAO, fname)
-    # img.save(fullpath)    # ainda nao estou salvando... 
+    fname = get_imgname(img)
+    img = redimensionar(img)
+    fullpath = os.path.join(imgpath, fname)
+    print('imagem:', img)
+    
+    if imgcfg['save-image']:
+        print('salvando:', fname)
+        img.save(fullpath)
+
     return fname
 
 
 def redimensionar(img):
-    return img
+    # from: https://cloudinary.com/guides/bulk-image-resize/python-image-resize-with-pillow-and-opencv
+    cfg = getconfig()
+    imgcfg = cfg['image-config']
+    mw = imgcfg['max-width']
+    mh = imgcfg['max-height']
+
+    myimg = Image.open(img)
+    (w, h) = myimg.size
+    print('image size (orig):', (w,h))
+    print(f'max img size - width:{mw}, height:{mh}')
+
+    if w > mw or h > mh:
+        myimg.thumbnail( (mw, mh) )
+        print('image size (resized):', myimg.size)
+
+    # ver tbem:
+    # https://opensource.com/life/15/2/resize-images-python
+    # https://auth0.com/blog/image-processing-in-python-with-pillow/
+    return myimg
 
 
 def mytest():

@@ -1,0 +1,7 @@
+# requisitos: instalacao dos pacotes abaixo
+# pip install -r requirements.txt
+
+# pillow
+python-magic
+flask
+flask-login

@@ -1,5 +1,5 @@
 
-import myimg
+from . import myimg
 
 
 class User:

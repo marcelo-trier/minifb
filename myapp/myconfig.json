@@ -1,0 +1,66 @@
+{
+    "run-config": {
+        "run-environment": "test",
+        "--1--run-environment": "production",
+        "--2--run-environment": "debug",
+        "environment-list": {
+            "test": {
+                "run-app:debug": true,
+                "run-app:use_debugger": false,
+                "run-app:use_reloader": false,
+                "image-config:save-image": false
+            },
+            "production": {
+
+            },
+            "debug": {
+                "image-config:save-image": false
+            }
+        },
+
+        "run-profile": "local-db",
+        "profile-list": {
+            "remote-db": {
+                "database-config:host": "127.0.0.1",
+                "database-config:user": "env:MYSQL_DB_USER",
+                "database-config:password": "env:MYSQL_DB_PASSWD",
+                "#_comment1": "O password (acima) estah dentro de uma variavel de ambiente -- env:____"
+            },
+
+            "local-db": {
+                "database-config:host": "localhost",
+                "database-config:user": "bob",
+                "database-config:password": "b0b"
+            }
+        }
+    },
+
+    "run-app" : {
+        "debug": true,
+        "use_debugger": false,
+        "use_reloader": false
+    },
+
+    "image-config": {
+        "img-path": "static/imgs",
+        "extensoes-aceitas": ["png", "jpg", "jpeg", "gif"],
+        "max-width": 300,
+        "max-height": 300,
+        "save-image": false
+    },
+
+    "database-config": {
+        "host": "localhost",
+        "port": "3306",
+        "user": "--",
+        "password": "--"
+    },
+
+    "teste-environment": {
+        "shell": "env:SHELL",
+        "exec-dir": "env:PWD",
+        "username": "env:USER"
+    }
+}
+
+
