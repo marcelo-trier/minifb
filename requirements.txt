@@ -7,3 +7,4 @@ python-magic
 flask
 flask-login
 mergedeep
+libmagic
