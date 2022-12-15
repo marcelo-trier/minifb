@@ -8,3 +8,4 @@ flask
 flask-login
 mergedeep
 libmagic
+python-magic-bin  # for windows ;o)
