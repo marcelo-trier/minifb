@@ -1,0 +1,27 @@
+{
+  "config-info": {
+    "config-name": "Development Environment -- local database",
+    "config-description": "Ambiente de testes com configuração de depuração e banco de dados local"
+  },
+
+  "image-config": {
+    "save-image": false    
+  },
+
+
+  "run-app" : {
+    "debug": true,
+    "use_debugger": false,
+    "use_reloader": false
+  },
+
+  "database-config": {
+    "host": "localhost",
+    "port": "3306",
+    "user": "bob",
+    "password": "b0b",
+    "db-name": "dbMinifb",
+    "#_comment1": "...adicionando um comentario qualquer, pois o json nao permite comentarios..."
+  }
+
+}

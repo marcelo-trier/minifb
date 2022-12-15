@@ -1,8 +1,6 @@
 
 _mycfg = None
 
-from .myuser import HtmlUser as MyUser
-
 
 def getconfig():
     return _mycfg
@@ -10,9 +8,9 @@ def getconfig():
 
 def run():
     global _mycfg
-
-    from .myconfig import _getconfig
-    _mycfg = _getconfig()
+    from .config.myconfig import MYCONFIG
+    cfg = MYCONFIG()
+    _mycfg = cfg.load()
 
     from .myapp import app
     runcfg = _mycfg['run-app']

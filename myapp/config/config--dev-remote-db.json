@@ -1,0 +1,25 @@
+{
+  "config-info": {
+    "config-name": "Development Environment -- REMOTE database",
+    "config-description": "Ambiente de testes e banco de dados remoto"
+  },
+
+  "image-config": {
+    "save-image": false    
+  },
+
+  "run-app" : {
+    "debug": true,
+    "use_debugger": false,
+    "use_reloader": false
+  },
+
+  "database-config": {
+    "host": "127.0.0.1",
+    "port": "3306",
+    "user": "env:MYSQL_DB_USER",
+    "password": "env:MYSQL_DB_PASSWD",
+    "#_comment1": "O password (acima) estah dentro de uma variavel de ambiente==> env:MYSQL_DB_PASSWD",
+    "db-name": "dbMinifb"
+  }
+}

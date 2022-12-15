@@ -1,4 +1,4 @@
 
-import myapp
+from myapp import run
 
-myapp.run()
+run()

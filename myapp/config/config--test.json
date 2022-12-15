@@ -1,0 +1,34 @@
+{
+  "run-config": {
+    "run-environment": "test",
+    "--1--run-environment": "production",
+    "--2--run-environment": "debug",
+    "environment-list": {
+      "test": {
+        "run-app:debug": true,
+        "run-app:use_debugger": false,
+        "run-app:use_reloader": false,
+        "image-config:save-image": false
+      },
+      "production": {},
+      "debug": {
+        "image-config:save-image": false
+      }
+    },
+    "run-profile": "local-db",
+    "--1--run-profile": "remote-db",
+    "profile-list": {
+      "remote-db": {
+        "database-config:host": "127.0.0.1",
+        "database-config:user": "env:MYSQL_DB_USER",
+        "database-config:password": "env:MYSQL_DB_PASSWD",
+        "#_comment1": "O password (acima) estah dentro de uma variavel de ambiente==> env:MYSQL_DB_PASSWD"
+      },
+      "local-db": {
+        "database-config:host": "localhost",
+        "database-config:user": "bob",
+        "database-config:password": "b0b"
+      }
+    }
+  }
+}

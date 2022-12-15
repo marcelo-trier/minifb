@@ -4,9 +4,8 @@
 import hashlib
 import magic
 import os
-from . import getconfig
 from PIL import Image
-
+from . import getconfig
 
 # Python Exception Hierarchy:
 # https://docs.python.org/3/library/exceptions.html#exception-hierarchy
@@ -93,7 +92,11 @@ def redimensionar(img):
 
 
 def mytest():
-    with open('./static/imgs/marcelo-pereira.jpg', 'r') as myfile:
+    path = os.path.abspath(__file__)
+    path = os.path.dirname(path)
+    fname = os.path.join(path, 'static', 'imgs', 'marcelo-pereira.jpg')
+    print('fname:', fname)
+    with open(fname, 'r') as myfile:
         print(myfile)
 
 if __name__ == '__main__':

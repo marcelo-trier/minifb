@@ -1,0 +1,51 @@
+{
+
+  "import-files": [
+    "config--dev-local-db.json"
+  ],
+
+  "run-app" : {
+    "debug": true,
+    "use_debugger": false,
+    "use_reloader": false
+  },
+
+  "image-config": {
+    "img-path": "static/imgs",
+    "extensoes-aceitas": ["png", "jpg", "jpeg", "gif"],
+    "max-width": 300,
+    "max-height": 300,
+    "save-image": false
+  },
+
+  "database-config": {
+    "host": "localhost",
+    "port": "3306",
+    "user": "--",
+    "password": "--",
+    "db-name": "---"
+  },
+
+  "teste-environment": {
+    "shell": "env:SHELL",
+    "exec-dir": "env:PWD",
+    "username": "env:USER"
+  },
+
+  "mapping-html2attr": {
+    "User": {
+      "usuario": "user",
+      "login": "login",
+      "email": "email",
+      "pwd": "pwd",
+      "img": "imgpath"
+    },
+
+    "OutrasClasses": {
+      "html-attr1": "cls-attr1",
+      "html-attr2": "cls-attr2"
+    }
+  }
+}
+
+

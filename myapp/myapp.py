@@ -1,9 +1,12 @@
 
 from flask import Flask, request, render_template
-from . import myimg as myimg
-from . import MyUser
+from . import myimg
+from .myuser import User as MyUser
+from . import getconfig
+from .mylib import to_html
 
 app = Flask(__name__)
+
 
 @app.route('/')
 def mymain():
@@ -24,13 +27,29 @@ def novocadastro():
 
 @app.route('/cadastro2', methods=['POST'])
 def cadastro2():
-    user = MyUser.fromhtml(request)
+  cfg = getconfig()
+  mymap = cfg['mapping-html2attr']
+  clsname = MyUser.__name__
+  cfgmap = mymap[clsname]
+  fromhtml = dict(request.form)
 
-    pag = f'''
-    <h1>Cadastrando novo usuario...</h1>
-    {user.tohtml()}
-    '''
-    return pag
+  diff = set(cfgmap) - set(fromhtml)  # verifica diferenca
+  for key in diff:
+    fromhtml[key] = request.files[key]
+
+  params = {}
+  for htmlattr, userattr in cfgmap.items():
+    if htmlattr not in fromhtml:
+      continue
+    params[userattr] = fromhtml[htmlattr]
+
+  obj = MyUser(**params)
+
+  pag = f'''
+  <h1>Cadastrando novo usuario...</h1>
+  {to_html(obj)}
+  '''
+  return pag
 
 
 @app.route('/cadastro', methods=['POST'])
