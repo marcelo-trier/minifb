@@ -1,7 +1,9 @@
 # requisitos: instalacao dos pacotes abaixo
 # pip install -r requirements.txt
 
+mysql-connector-python
 pillow
 python-magic
 flask
 flask-login
+mergedeep
