@@ -20,8 +20,8 @@
     "port": "3306",
     "user": "bob",
     "password": "b0b",
-    "db-name": "dbMinifb",
-    "#_comment1": "...adicionando um comentario qualquer, pois o json nao permite comentarios..."
+    "database": "dbMinifb",
+    "#--comment1": "...adicionando um comentario qualquer, pois o json nao permite comentarios..."
   }
 
 }

@@ -1,6 +1,7 @@
 # requisitos: instalacao dos pacotes abaixo
 # pip install -r requirements.txt
 
+pandas
 mysql-connector-python
 pillow
 python-magic
@@ -8,4 +9,6 @@ flask
 flask-login
 mergedeep
 libmagic
-python-magic-bin  # for windows ;o)
+
+# for windows ;o)
+python-magic-bin ; sys_platform == 'win32'

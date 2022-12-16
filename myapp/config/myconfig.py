@@ -63,6 +63,8 @@ class MYCONFIG:
   # funcao recursiva... ;o)
   def _checkenv(self, element):
     if isinstance(element, dict):
+      # removendo comentarios que iniciam com '#' ou '--' ou '#--' ou '##'
+      element = {k: v for k, v in element.items() if not(k[0]=='#' or k[:2] in ('--', ))}
       for key, value in element.items():
         element[key] = self._checkenv(value)
 

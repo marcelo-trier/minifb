@@ -2,7 +2,6 @@
 Projeto para fazer aplicativo de mensagens e amigos
 
 
-
 # Como rodar?
 
   - para rodar o programa é preciso instalar as bibliotecas que estão dentro de requirements.txt

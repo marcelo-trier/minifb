@@ -1,17 +1,21 @@
 
 _mycfg = None
-
+_banco = None
 
 def getconfig():
-    return _mycfg
+  global _mycfg
+  from .config.myconfig import MYCONFIG
+  if not _mycfg:
+    cfg = MYCONFIG()
+    _mycfg = cfg.load()
+  return _mycfg
 
 
 def run():
-    global _mycfg
-    from .config.myconfig import MYCONFIG
-    cfg = MYCONFIG()
-    _mycfg = cfg.load()
+    global _banco
+    #_banco = iniciarbanco()
+    cfg = getconfig()
+    runcfg = cfg['run-app']
 
     from .myapp import app
-    runcfg = _mycfg['run-app']
     app.run(**runcfg)

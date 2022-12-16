@@ -22,7 +22,7 @@
         "database-config:host": "127.0.0.1",
         "database-config:user": "env:MYSQL_DB_USER",
         "database-config:password": "env:MYSQL_DB_PASSWD",
-        "#_comment1": "O password (acima) estah dentro de uma variavel de ambiente==> env:MYSQL_DB_PASSWD"
+        "#--comment1": "O password (acima) estah dentro de uma variavel de ambiente==> env:MYSQL_DB_PASSWD"
       },
       "local-db": {
         "database-config:host": "localhost",

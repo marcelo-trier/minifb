@@ -19,7 +19,7 @@
     "port": "3306",
     "user": "env:MYSQL_DB_USER",
     "password": "env:MYSQL_DB_PASSWD",
-    "#_comment1": "O password (acima) estah dentro de uma variavel de ambiente==> env:MYSQL_DB_PASSWD",
-    "db-name": "dbMinifb"
+    "#--comment1": "O password (acima) estah dentro de uma variavel de ambiente==> env:MYSQL_DB_PASSWD",
+    "database": "dbMinifb"
   }
 }
