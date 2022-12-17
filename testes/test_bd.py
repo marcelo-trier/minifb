@@ -11,9 +11,9 @@ class TestBancoDados(unittest.TestCase):
     obj.conectar()
     df = obj.executar_sql('SHOW TABLES')
     print(df)
-    ll = df[df.columns[0]].tolist()
-    l2 = ['tbAmigo', 'tbMensagem', 'tbUsuario']
-    print('tabelas:', ll)
+    tabbanco = set(df[df.columns[0]])
+    tabcompara = ['tbAmigo', 'tbMensagem', 'tbUsuario']
+    self.assertEqual(tabbanco, set(tabcompara))
 
 
 
