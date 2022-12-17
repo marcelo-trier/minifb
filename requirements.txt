@@ -1,14 +1,45 @@
 # requisitos: instalacao dos pacotes abaixo
 # pip install -r requirements.txt
 
-pandas
-mysql-connector-python
-pillow
-python-magic
-flask
-flask-login
-mergedeep
-libmagic
-
 # for windows ;o)
 python-magic-bin ; sys_platform == 'win32'
+
+
+asttokens
+backcall
+certifi
+click
+decorator
+executing
+Flask
+Flask-Login
+importlib-metadata
+ipython
+itsdangerous
+jedi
+Jinja2
+libmagic
+MarkupSafe
+matplotlib-inline
+mergedeep
+mysql-connector-python
+numpy
+pandas
+parso
+pexpect
+pickleshare
+Pillow
+prompt-toolkit
+protobuf
+ptyprocess
+pure-eval
+Pygments
+python-dateutil
+python-magic
+pytz
+six
+stack-data
+traitlets
+wcwidth
+Werkzeug
+zipp

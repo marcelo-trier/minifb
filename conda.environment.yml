@@ -1,0 +1,66 @@
+
+# conda env create -f conda.environment.yml
+
+name: myclass38
+channels:
+  - defaults
+dependencies:
+  - _libgcc_mutex
+  - _openmp_mutex
+  - asttokens
+  - backcall
+  - ca-certificates
+  - certifi
+  - decorator
+  - executing
+  - ipython
+  - jedi
+  - ld_impl_linux-64
+  - libffi
+  - libgcc-ng
+  - libgomp
+  - libstdcxx-ng
+  - matplotlib-inline
+  - ncurses
+  - openssl
+  - parso
+  - pexpect
+  - pickleshare
+  - pip
+  - prompt-toolkit
+  - ptyprocess
+  - pure_eval
+  - pygments
+  - python
+  - readline
+  - setuptools
+  - six
+  - sqlite
+  - stack_data
+  - tk
+  - traitlets
+  - wcwidth
+  - wheel
+  - xz
+  - zlib
+  - pip:
+      - click
+      - flask
+      - flask-login
+      - importlib-metadata
+      - itsdangerous
+      - jinja2
+      - libmagic
+      - markupsafe
+      - mergedeep
+      - mysql-connector-python
+      - numpy
+      - pandas
+      - pillow
+      - protobuf
+      - python-dateutil
+      - python-magic
+      - pytz
+      - werkzeug
+      - zipp
+prefix: /home/marcelo/miniconda3/envs/myclass38
